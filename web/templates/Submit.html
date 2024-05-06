@@ -1,0 +1,85 @@
+{% extends "Home.html" %}
+{% block head_css %}
+<link rel="stylesheet" href="../static/submit.css"/>
+{% endblock %}
+
+{% block head_js %}
+<script source="../static/submit.js"></script>
+{% endblock %}
+{%block content%}
+<!-- JQUERY STEP -->
+<div class="container-fluid px-1 py-5 mx-auto">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+            <h3>Submit a test data</h3>
+            <p class="blue-text">Just fill a few questions<br> so that we can allow the data to be uploaded as part of
+                the dataset.</p>
+            <div class="card">
+                <h5 class="text-center mb-4">Dataset form</h5>
+                <form class="form-card" onsubmit="event.preventDefault()">
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex">
+                            <label class="form-control-label px-3">Country
+                                <span class="text-danger"> *</span>
+                            </label>
+                            <input type="text" id="country" name="country"
+                                   placeholder="Enter your Country"
+                                   onblur="validate(1)"></div>
+                        <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">Language<span
+                                class="text-danger"> *</span></label> <input type="text" id="language" name="language"
+                                                                             placeholder="Enter exam language"
+                                                                             onblur="validate(2)"></div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">Exam
+                            Year<span class="text-danger"> *</span></label> <input type="number" min="1900" max="2099"
+                                                                                   id="year" name="year"
+                                                                                   placeholder="Enter year value" onblur="validate(3)">
+                        </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">Exam
+                            Name<span class="text-danger"> *</span></label> <input type="text" id="ename" name="ename"
+                                                                                   placeholder=""
+                                                                                   onblur="validate(4)"></div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">Question type
+                            <span class="text-danger"> *</span></label> <input type="text" id="type" name="type"
+                                                                               placeholder="e.g multiple choice" onblur="validate(5)">
+                        </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">Question number
+                            <span class="text-danger"> *</span></label> <input type="number" min="0" max="2000"
+                                                                               id="qnumber" name="qnumber"
+                                                                               placeholder="total number of question" onblur="validate(6)">
+                        </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">Model
+                            <span class="text-danger"> *</span></label> <input type="text" id="model" name="model"
+                                                                               placeholder="selected model" onblur="validate(5)">
+                        </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">Accuracy
+                            <span class="text-danger"> *</span></label> <input type="number" min="0" max="100"
+                                                                               id="accuracy" name="accuracy"
+                                                                               placeholder="number between 0-100" onblur="validate(6)">
+                        </div>
+
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-12 flex-column d-flex"><label class="form-control-label px-3">Exam Description
+                            <span class="text-danger"> *</span></label>
+                            <textarea class="form-control" id="textAreaExample1" rows="4" placeholder="Exam Description"></textarea>
+
+                        </div>
+                    </div>
+                    <div class="row justify-content-end">
+                        <div class="form-group col-sm-6">
+                            <button type="submit" class="btn-block btn-primary float-end">Submit Dataset</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

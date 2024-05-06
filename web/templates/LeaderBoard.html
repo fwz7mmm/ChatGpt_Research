@@ -1,0 +1,98 @@
+{% extends "Home.html" %}
+{% block head_css %}
+{{ super() }}
+<link rel="stylesheet" href="../static/leaderboard.css"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-table@1.22.4/dist/bootstrap-table.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+{% endblock %}
+{%block content%}
+<div style="height: 60px; background-color: white;">
+</div>
+<div class="mx-auto" style="width: 80%; background-color: #eee;">
+    <table class="table table-hover table-sm align-middle" id="leaderboard-table" data-toggle="table"
+           data-toggle="table"
+           data-filter-control="true"
+           data-show-search-clear-button="true"
+           data-sortable="true"
+           data-pagination="true"
+           data-page-size="25"
+           data-page-list="[10, 25, 50, 100, all]"
+           data-show-columns="true"
+           data-show-columns-toggle-all="true"
+           class="table-responsive">
+        <thead>
+        <tr>
+            <th data-field="PMID" data-filter-control="input">PMID</th>
+            <th data-field="Country" data-filter-control="select">Country</th>
+            <th data-field="Language" data-filter-control="select">Language</th>
+            <th data-field="ExamYear" data-sortable="true">Exam Year</th>
+            <th data-field="Model" data-filter-control="select">Model</th>
+            <th data-field="Accuracy" data-sortable="true">Accuracy</th>
+            <th data-field="QuestionType" data-filter-control="select">Question Type</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for ele in PMdata %}
+        <tr data-bs-toggle="modal" data-id="{{ele.ID}}" data-bs-target="#data{{ele.ID}}">
+            <td>{{ele.PMID}}</td>
+            <td>{{ele.Country}}</td>
+            <td>{{ele.Language}}</td>
+            <td>{{ele.Exam_Year}}</td>
+            <td>{{ele.Model}}</td>
+            <td>{{ele.Accuracy}}</td>
+            <td>{{ele.Question_Type}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% for ele in PMdata %}
+    <div id="data{{ele.ID}}" class="modal fade" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>PMID: {{ele.PMID}}</h3>
+                </div>
+                <div id="dataDetails" class="modal-body">
+                    <nav id="modal{{ele.PMID}}" class="navbar navbar-light bg-light px-3">
+                        <h2 class="navbar-brand">More Details</h2>
+                    </nav>
+                    <div data-bs-spy="scroll" data-bs-target="#modal{{ele.PMID}}" data-bs-offset="0"
+                         class="scrollspy-example" tabindex="0">
+                        <h4 id="Exam_Name">Exam Name</h4>
+                        <p>{{ele.Exam_Name}}</p>
+                        <h4 id="Exam_Description">Exam Description</h4>
+                        <p>{{ele.Exam_Description}}</p>
+                        <h4 id="Question_Type">Question Type</h4>
+                        <p>{{ele.Question_Type}}</p>
+                        <h4 id="Pass_Criteria">Pass Criterial</h4>
+                        <p>{{ele.Pass_Criteria}}</p>
+                        <h4 id="Correct_Response">Correct Response</h4>
+                        <p>{{ele.Correct_Response}}</p>
+                        <h4 id="Score">Score</h4>
+                        <p>{{ele.Score}}</p>
+                        <h4 id="Pass">Pass</h4>
+                        <p>{{ele.Pass}}</p>
+                        <h4 id="Data_availability">Source of Data</h4>
+                        <p>{{ele.Data_availability}}</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-bs-dismiss="modal" aria-hidden="true">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+{% block head_js %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.22.4/dist/bootstrap-table.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.22.4/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+<script>
+    var $table = $('#leaderboard-table');
+
+    $table.bootstrapTable();
+
+</script>
+<!-- The contents of myscript.js will be loaded inside the script tag -->
+{% endblock %}

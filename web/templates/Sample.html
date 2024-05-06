@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.22.4/dist/bootstrap-table.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.22.4/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.22.4/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-table@1.22.4/dist/bootstrap-table.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+</head>
+<body>
+<table id="clients-table" class="table table-striped table-condensed"
+       data-toggle="table"
+       data-show-toggle="true"
+       data-cache="false"
+       data-show-refresh="true"
+       data-url="data.json"
+       data-filter-control="true"
+       data-side-pagination="server"
+       data-search="true"
+       data-sort-name="Id"
+       data-sort-order="desc"
+       data-pagination="true"
+       data-page-size="25">
+    <thead>
+    <tr>
+        <th data-field="PMId" data-sortable="true">pmId</th>
+        <th data-field="Email" data-sortable="true">E-Mail</th>
+        <th data-field="PricingType" data-sortable="true" data-filter-control="select">Cennik</th>
+        <th data-field="LastSynchronizationOn" data-sortable="true">Synchronizacja</th>
+    </tr>
+    </thead>
+</table>
+
+<script>
+    var $table = $('#clients-table');
+
+    $table.bootstrapTable();
+
+</script>
+</body>
+</html>

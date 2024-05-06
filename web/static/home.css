@@ -1,0 +1,35 @@
+
+.navbar-expand-md {
+    height: 100px;
+}
+
+.navbar-expand-md li{
+    font-style:oblique;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.introduction{
+    margin-top:-15%;
+    padding: 10%;
+}
+.introduction h4{
+    color: #ffa500;
+    font-weight: bold;
+    font-size: 30px;
+}
+.introduction .subheading{
+    color: #3931af;
+    font-size: 20px;
+}
+.introduction .row
+{
+    margin-top: 10%;
+}
+.how-img
+{
+    text-align: center;
+}
+.how-img img{
+    width: 40%;
+}

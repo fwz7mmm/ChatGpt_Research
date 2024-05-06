@@ -1,0 +1,26 @@
+{% extends "Home.html" %}
+
+{%block content%}
+
+<div class="card text-center" style="width: 100%; background-color: #eee; ">
+    <div class="card-header">
+        <h2 class="card-title">{{data.title}}</h2>
+    </div>
+    <div class="card-body" style="width: 100%;">
+        <h5 class="card-title">{{data.authors}}</h5>
+        <h2 class="card-title">Abstract</h2>
+        <div class="mx-auto" style="width: 80%; background-color: #eee;">
+            <p class="card-text">{{data.abstract}}</p>
+        </div>
+        <div class="card-footer text-muted">
+            {{data.publication_date}}
+        </div>
+        <div class="card-footer text-muted">
+            {{data.journal}}
+        </div>
+        <div style="height: 50px; background-color: white;"></div>
+        <a href="{{url_for('home.Paper')}}" class="btn btn-primary">Go Back</a>
+    </div>
+</div>
+
+{% endblock %}
